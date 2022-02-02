@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="New application created.">
+        <div class="slds-p-horizontal_small">
+
+            <lightning-record-edit-form object-api-name="Application__c" record-id={strRecordId}>
+                <lightning-input-field field-name="Name">
+                </lightning-input-field>
+            </lightning-record-edit-form>
+
+            <lightning-record-view-form object-api-name="Application__c" record-id={strRecordId}>
+                <lightning-output-field field-name="IsEligible__c">
+                </lightning-output-field>
+                <lightning-output-field field-name="Status__c">
+                </lightning-output-field>
+            </lightning-record-view-form>
+        </div>
+
+
+
+        <c-modal onclick={showModal}></c-modal>
+    </lightning-card>
+</template>
