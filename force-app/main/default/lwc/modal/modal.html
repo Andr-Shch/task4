@@ -1,5 +1,5 @@
 <template>
-    <div class="slds-box slds-theme_shade">
+    <div class="btn slds-box slds-theme_shade">
         <lightning-button label="Show Modal" onclick={showModal}> </lightning-button>
     </div>
     <template if:true={openModal}>
@@ -14,12 +14,13 @@
                 </div>
                 <!------Body Section-->
                 <div class="slds-modal__content slds-p-around_medium">
-                    <div style="height: 400px;">
+                    <div style="height: 300px;">
 
-                        <lightning-combobox name="progress" label="Eligible" value={value} placeholder="Select Progress"
-                            options={options} onchange={handleChange}></lightning-combobox>
+                        <lightning-combobox name="progress1" label="Eligible" value={eligible} disabled={disabled}
+                            required placeholder="Select Progress" options={options} onchange={handleChange}>
+                        </lightning-combobox>
 
-                        <p>Selected value is: {value}</p>
+                        <p>Selected value is: {application.name} {recordId}</p>
 
                         <lightning-combobox name="progress" label="Status" value={status} placeholder="Select Progress"
                             options={optionsStatus} onchange={handleChangeStatus}></lightning-combobox>
@@ -31,6 +32,8 @@
                 <div class="slds-modal__footer">
                     <lightning-button icon-name="utility:close" label="close" variant="brand" onclick={closeModal}>
                     </lightning-button>
+                    <lightning-button variant="success" label="Success" title="Successful action" onclick={updateApp}
+                        class="slds-m-left_x-small"></lightning-button>
                 </div>
             </div>
         </div>
